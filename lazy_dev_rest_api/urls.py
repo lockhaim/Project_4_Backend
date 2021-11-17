@@ -18,6 +18,6 @@ from django.urls import path
 from django.conf.urls import include # add this
 
 urlpatterns = [
-    path('', include('lazy_dev_api.urls')), # add this
+    path('', include('lazy_dev_rest_api.urls')), # add this
     path('admin/', admin.site.urls),
 ]
