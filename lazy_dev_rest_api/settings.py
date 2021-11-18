@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 import dj_database_url
 import os
@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-ji_+kl!8f58u(b7h^(xixyr+&cm#cp6_gao)h1n#x3&$01*u2v
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'lazy-dev-project.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', 'lazy-dev-project-backend.herokuapp.com']
 
 
 # Application definition
@@ -135,6 +135,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') # add this
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT =  BASE_DIR/ 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
