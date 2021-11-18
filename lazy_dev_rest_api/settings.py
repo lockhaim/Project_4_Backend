@@ -88,8 +88,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'lazy_dev_api',
-        'USER': '',
-        'PASSWORD': '',
+        'USER': 'psqluser',
+        'PASSWORD': 'learn2code12',
         'HOST': 'localhost'
     }
 }
