@@ -11,5 +11,5 @@ class Guide(models.Model):
     author_id = models.ForeignKey(User, null=True, on_delete= models.SET_NULL)
     likes = models.IntegerField()
     content = models.CharField(max_length=1024)
-    image = models.ImageField(upload_to='images', blank=True)
+    image = models.CharField(max_length=1024)
     rating = models.IntegerField()
