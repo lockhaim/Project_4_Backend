@@ -54,6 +54,16 @@ def check_login(request):
         else: #if email doesn't exist in db, return empty dict
             return JsonResponse({})
 
+def handleLogout(request):
+    jsonRequest = json.loads(request.body)
+    name = jsonRequest['name']
+    user = User.objects.get(name=name)
+    User.objects.filter(name=name).update(online=False)
+    return user
+    
+
+
+
 #------------------------------------------------------------------------------
 # def upload(request):
 #     if request.method == 'POST' and request.FILES['upload']:

@@ -8,5 +8,6 @@ urlpatterns = [
     path('api/guides/upload', views.upload, name ='upload'),
     path('api/user', views.UserList.as_view(), name='user_list'),
     path('api/user/<int:pk>', views.UserDetail.as_view(), name='user_detail'),
-    path('api/user/login', csrf_exempt(views.check_login), name="check_login") # will be routed to the check_login function for auth
+    path('api/user/login', csrf_exempt(views.check_login), name='check_login'), # will be routed to the check_login function for auth
+    path('api/user/logout', views.handleLogout, name='handleLogout'),
 ]
