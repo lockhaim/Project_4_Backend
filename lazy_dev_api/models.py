@@ -8,7 +8,7 @@ class User(models.Model):
 
 class Guide(models.Model):
     name = models.CharField(max_length=32, blank=True, null=True)
-    author_id = models.ForeignKey(User, null=True, on_delete= models.SET_NULL)
+    author = models.ForeignKey(User, null=True, on_delete= models.SET_NULL)
     likes = models.IntegerField(blank=True, null=True)
     content = models.CharField(max_length=1024, blank=True, null=True)
     image = models.CharField(max_length=1024, blank=True, null=True)

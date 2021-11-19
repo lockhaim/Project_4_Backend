@@ -6,7 +6,7 @@ from django.contrib.auth.hashers import make_password
 class GuideSerializer(serializers.ModelSerializer):
     class Meta:
         model = Guide
-        fields = ('id', 'name', 'author_id', 'likes', 'content', 'image', 'rating',)
+        fields = ('id', 'name', 'author', 'likes', 'content', 'image', 'rating',)
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
