@@ -47,6 +47,7 @@ def check_login(request):
         if User.objects.get(name=name): #see if email exists in db
             user = User.objects.get(name=name)  #find user object with matching email
             if check_password(password, user.password): #check if passwords match
+                User.objects.filter(name=name).update(online=True)
                 return JsonResponse({'id': user.id, 'name': user.name}) #if passwords match, return a user dict
             else: #passwords don't match so return empty dict
                 return JsonResponse({})

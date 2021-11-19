@@ -24,3 +24,11 @@ from django.conf import settings (if needed)
 from django.conf.urls.static import static (if needed)
 
 **TODO: CREATE FORMS THAT TAKE IMAGE UPLOAD
+----------------------------------------------------------------------
+##User Auth
+This article was the guide to create the front end portion of User Auth.
+https://www.freecodecamp.org/news/how-to-persist-a-logged-in-user-in-react/
+
+-When a user logs in, check credentials against DB
+-If login is successful, set 'online' property of that User to True.
+-store logged-in user to local storage. This will be used to conditionally render the current user's page.

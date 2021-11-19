@@ -28,3 +28,9 @@ class UserSerializer(serializers.ModelSerializer):
         user.password = make_password(validated_data["password"])
         user.save()
         return user
+
+    def updateStatus(self, validated_data):
+        user = User.objects.get(name=validated_data["name"])
+        user.online = True
+        user.save()
+        return user
