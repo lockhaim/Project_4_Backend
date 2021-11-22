@@ -11,13 +11,13 @@ class GuideSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'name', 'password')
+        fields = ('id', 'name', 'password', 'online')
     ### THIS HASHES A NEW USERS PASSWORD WHEN THEY CREATE AN ACCOUNT
     def create(self, validated_data):
         user = User.objects.create(
             name=validated_data['name'],
             password = make_password(validated_data['password']),
-            online = False
+            online = True
         )
         user.save()
         return user
@@ -29,8 +29,8 @@ class UserSerializer(serializers.ModelSerializer):
         user.save()
         return user
 
-    def updateStatus(self, validated_data):
-        user = User.objects.get(name=validated_data["name"])
-        user.online = True
-        user.save()
-        return user
+    # def updateStatus(self, validated_data):
+    #     user = User.objects.get(name=validated_data["name"])
+    #     user.online = True
+    #     user.save()
+    #     return user

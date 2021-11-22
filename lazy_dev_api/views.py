@@ -57,22 +57,22 @@ def check_login(request):
 def handleLogout(request):
     jsonRequest = json.loads(request.body)
     name = jsonRequest['name']
-    user = User.objects.get(name=name)
+    user = User.objects.filter(name=name)
     User.objects.filter(name=name).update(online=False)
     return user
-    
 
 
+def handleRegistration(request):
+    jsonRequest = json.loads(request.body)
+    user = User.objects.create(
+        name=jsonRequest['name'],
+        password = make_password(jsonRequest['password']),
+        online = True
+    )
+    user.save()
+    return user
 
 #------------------------------------------------------------------------------
-# def upload(request):
-#     if request.method == 'POST' and request.FILES['upload']:
-#         upload = request.FILES['upload']
-#         fss = FileSystemStorage()
-#         file = fss.save(upload.name, upload)
-#         file_url = fss.url(file)
-#         return redirect('api/guides', {'file_url':file_url})
-#     return redirect('api/guides')
 
 def upload(request):
     if request.method == 'POST':
