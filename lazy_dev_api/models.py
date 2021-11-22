@@ -13,4 +13,4 @@ class Guide(models.Model):
     content = models.CharField(max_length=1024, blank=True, null=True)
     image = models.CharField(max_length=1024, blank=True, null=True)
     rating = models.IntegerField(blank=True, null=True)
-    imageFile = models.ImageField(upload_to='images', blank=True, null=True)
+    # imageFile = models.ImageField(upload_to='images', blank=True, null=True)
